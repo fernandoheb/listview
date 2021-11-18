@@ -1,0 +1,28 @@
+{
+  pacotes : [
+    {
+      "imagem": "@android:color/holo_red_light",
+      "title": "São Paulo",
+      "descricao": "1 diária",
+      "valor": "350,00"
+    },
+    {
+      "imagem": "@android:color/holo_green_dark",
+      "title": "Campinas",
+      "descricao": "2 diárias",
+      "valor": "500,00"
+    },
+    {
+      "imagem": "@color/purple_200",
+      "title": "Porto Seguro",
+      "descricao": "5 diárias",
+      "valor": "1000,00"
+    },
+    {
+      "imagem": "@android:color/holo_red_dark",
+      "title": "Salvador",
+      "descricao": "2 diárias",
+      "valor": "900,00"
+    }
+  ]
+}

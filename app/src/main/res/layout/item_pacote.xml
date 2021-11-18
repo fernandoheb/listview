@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/item_cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/item_cardView_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/item_background"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:scaleType="centerCrop"
+                android:src="#6200EA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:src="@sample/pacotes.json/pacotes/imagem" />
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:drawable/screen_background_dark_transparent"
+                android:padding="8dp"
+                android:text="Título"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/item_background"
+                app:layout_constraintEnd_toEndOf="@id/item_background"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/item_background"
+                app:layout_constraintTop_toTopOf="@id/item_background"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="@sample/pacotes.json/pacotes/title" />
+
+            <View
+                android:id="@+id/item_divisor"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="@android:color/holo_orange_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/item_background"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/item_background"
+                app:layout_constraintTop_toBottomOf="@id/item_background"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/item_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:drawable/screen_background_dark_transparent"
+                android:padding="8dp"
+                android:text="Duas diarias"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="@id/item_divisor"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/item_divisor"
+                app:layout_constraintTop_toBottomOf="@id/item_divisor"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@sample/pacotes.json/pacotes/descricao" />
+
+            <TextView
+                android:id="@+id/item_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:padding="8dp"
+                android:text="R$100.00"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/item_divisor"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/item_divisor"
+                app:layout_constraintTop_toBottomOf="@id/item_divisor"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@sample/pacotes.json/pacotes/valor" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
