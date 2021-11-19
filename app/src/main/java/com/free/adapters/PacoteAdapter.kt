@@ -1,53 +1,70 @@
 package com.free.adapters
 
 import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.free.models.Pacotes
 import com.free.testeconstraint.R
+import kotlinx.android.synthetic.main.item_pacote.view.*
 
 
-class PacoteAdapter(private val context: Context,
-                    private val dataSource: List<Pacotes>): BaseAdapter() {
+class PacoteAdapter(private val context: Context, private val dataSource: List<Pacotes>): Adapter<PacoteAdapter.ViewHolder>() {
 
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val image :ImageView
+        val title :TextView
+        val description :TextView
+        val value :TextView
 
-
-
-    private val inflater: LayoutInflater
-            = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
-    override fun getCount(): Int {
-        return dataSource.size
+        init {
+            // Define click listener for the ViewHolder's View.
+            image = view.item_background
+            title = view.item_title
+            description = view.item_description
+            value = view.item_value
+        }
     }
 
-    override fun getItem(position: Int): Any {
-        return dataSource[position]
+    // Create new views (invoked by the layout manager)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_pacote, parent, false)
+
+        return ViewHolder(view)
     }
 
-    override fun getItemId(position: Int): Long {
-        return 0
-    }
+    // Replace the contents of a view (invoked by the layout manager)
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val rowView = inflater.inflate(R.layout.item_pacote, parent, false)
+        // Get element from your dataset at this position and replace the
+        // contents of the view with that element
 
         val pac : Pacotes = dataSource.get(position)
-        val image = rowView.findViewById<ImageView>(R.id.item_background)
-        val title = rowView.findViewById<TextView>(R.id.item_title)
-        val description = rowView.findViewById<TextView>(R.id.item_description)
-        val value = rowView.findViewById<TextView>(R.id.item_value)
-        title.text = pac.title
-        description.text = pac.description
-        value.text = pac.value
 
         val resources = context.resources
         val identifier = resources.getIdentifier(pac.image, null, context.packageName)
         val drawable = resources.getDrawable(identifier)
-        image.setImageDrawable(drawable)
-        return rowView
+
+        viewHolder.let {
+            it.title.text = pac.title
+            it.description.text = pac.description
+            it.value.text = pac.value
+            it.image.setImageDrawable(drawable)
+        }
     }
+
+
+    override fun getItemId(position: Int) = 0L
+
+
+
+    override fun getItemCount() =  dataSource.size
+
+
 }

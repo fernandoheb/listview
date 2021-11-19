@@ -45,8 +45,8 @@
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <ListView
-        android:id="@+id/lista_Pacotes_listview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lista_Pacotes_RecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

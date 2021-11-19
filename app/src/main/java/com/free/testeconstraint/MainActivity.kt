@@ -2,14 +2,14 @@ package com.free.testeconstraint
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import com.free.adapters.PacoteAdapter
 import com.free.models.Pacotes
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var listView: ListView
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +42,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        listView = lista_Pacotes_listview
-        val adapter = PacoteAdapter(this,listaPacotes)
+        recyclerView = lista_Pacotes_RecyclerView
+        val adapter = PacoteAdapter(this, listaPacotes)
 
 
 
-        listView.adapter = adapter
+        recyclerView.adapter = adapter
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
     }
 }
